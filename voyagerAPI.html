@@ -1,0 +1,93 @@
+<HTML>
+
+
+    <head>
+        <style>
+            #button1 {
+                width: 250px;
+                display: inline-block;
+                text-align: center;
+                padding: 0px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #container {
+                text-align: center;
+            }
+
+            .inliner {
+                display: inline;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <div id="container">
+            <h1 id="text_placeholder">TEST</h1>
+
+            <div>
+                <h2 class="inliner">Block Number: </h2><h2 class="inliner" id="blockNO">NULL</h2>  
+            </div>
+
+            <div>
+                <h2 class="inliner">Txn Count: </h2><h2 class="inliner" id="txnC">NULL</h2>  
+            </div>
+
+            <div>
+                <h2 class="inliner">confirmations: </h2><h2 class="inliner" id="confirmations">NULL</h2>  
+            </div>
+
+            <div>
+                <h2 class="inliner">Timestamp: </h2><h2 class="inliner" id="timestamp">NULL</h2>  
+            </div>
+
+
+            <input id="hash">
+            <button id='button1'>CLICK TO UPDATE</button>
+        </div>
+
+
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            const readBlock = async() => {
+                try {
+                    let blockhash = $('#hash').val();
+
+                    console.log(blockhash)
+                    const response = await fetch(`https://api.voyager.online/beta/blocks/${blockhash}`, {
+                        method: "GET",
+                        headers: {
+                        Accept: "application/json",
+                        "x-api-key": "SKHz4zIjOS8FkTmK5BU5JQAJfVUAepU8XU45s7Kh"
+                        }});
+
+                        if(response.ok) {
+                            const myJSON = await response.json();
+                            console.log(myJSON)
+
+                            $("#blockNO").html(myJSON.blockNumber)
+                            $("#txnC").html(myJSON.txnCount)
+                            $("#confirmations").html(myJSON.confirmations)
+                            $("#timestamp").html(myJSON.timestamp)
+                        }
+                } catch(error) {
+                    console.log(error);
+                }
+
+
+            }
+
+            $('#button1').on('click', () => {readBlock()});
+
+        </script>
+
+    </body>
+
+
+</HTML>

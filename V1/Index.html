@@ -1,0 +1,81 @@
+<HTML>
+    <head>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #button1 {
+                width: 250px;
+                display: inline-block;
+                text-align: center;
+                padding: 0px;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #scriptContainer {
+                display: flex;
+                align-items: center;
+                justify-items: center;
+                text-align: center;
+                margin-top: 25px;
+            }
+
+            .container {
+                text-align: center;
+            }
+
+            .inliner {
+                display: inline;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <div class="container">
+            <h1 id="text_placeholder">TEST</h1>
+
+            <div>
+                <h2 class="inliner">Block Number: </h2><h2 class="inliner" id="blockNO">NULL</h2>  
+            </div>
+
+            <div>
+                <h2 class="inliner">Txn Count: </h2><h2 class="inliner" id="txnC">NULL</h2>  
+            </div>
+
+            <div>
+                <h2 class="inliner">confirmations: </h2><h2 class="inliner" id="confirmations">NULL</h2>  
+            </div>
+
+            <div>
+                <h2 class="inliner">Timestamp: </h2><h2 class="inliner" id="timestamp">NULL</h2>  
+            </div>
+
+
+            <input id="hash">
+            <button id='button1'>Input Block Hash</button>
+        </div>
+
+
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/p5@1.9.4/lib/p5.js"></script>
+
+        <script type="text/javascript" src="./blockReader.js">
+        </script>
+
+        <div id="scriptContainer">
+            <script src="sketch.js"></script>
+        </div>
+    </body>
+
+
+</HTML>

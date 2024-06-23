@@ -1,0 +1,1 @@
+{"version":1,"contracts":[{"id":"9c0lr1iebmus8","package_name":"block_vis_nft","contract_name":"block_vis_nft","module_path":"block_vis_nft::block_vis_nft::block_vis_nft","artifacts":{"sierra":"block_vis_nft_block_vis_nft.contract_class.json","casm":"block_vis_nft_block_vis_nft.compiled_contract_class.json"}}]}
